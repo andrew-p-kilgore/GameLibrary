@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Video Game Library</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <header>
+    <h1><em>Video Game Library Project</em></h1>
+  </header>
+
+  <body>
+    <nav>
+      <p class="navBox">
+        <a class="btn badge-pill" href="index.html">Home</a>
+        <a class="btn badge-pill" href="games.html">Games</a>
+        <a class="btn badge-pill" href="customers.html">Customers</a>
+        <a class="btn badge-pill" href="rentals.html">Rentals</a>
+      </p>
+    </nav>
+    <section class="container-fluid">
+      <div class="row">
+        <div class="col-lg col-md">
+          <article class="sectionBorder" id="rules">
+            <h2><em>Overview:</em></h2>
+            <p> Our project is modeled after a video game library. The library holds different video games by storing their titles, platform, genre, release year, as well as their publisher.</p>
+            <p> The database also stores records of customers in the form of holding their first and last names, address, phone number, and the card number for their payment method.</p>
+            <p> Lastly, the database stores records of the rentals by holding onto the IDs of both the game and customer related to the rental as well as the start and end dates and the cost.</p>
+            <p> For out purposes, the cost has been assumed to be a flat rate per day for all games. ($2)</p>
+        </article>
+        </div>
+      </div>
+    <!-- CDN links copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
