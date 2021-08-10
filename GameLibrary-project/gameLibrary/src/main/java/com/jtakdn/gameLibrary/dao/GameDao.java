@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface GameDao {
 
-    public Game create(Game game);
+    public Game createGame(Game game);
 
-    public Game get(String gameId);
+    public Game getGame(String gameId);
 
-    public List<Game> getAll();
+    public List<Game> getAllGames();
 
-    public boolean update(Game game);
+    public boolean updateGame(Game game);
 
-    public boolean delete(String gameId);
+    public boolean deleteGame(String gameId);
 
 }

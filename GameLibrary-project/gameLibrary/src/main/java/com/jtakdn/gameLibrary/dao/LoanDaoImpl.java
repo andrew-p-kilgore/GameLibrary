@@ -7,32 +7,28 @@ import java.util.List;
 public class LoanDaoImpl implements LoanDao{
 
     @Override
-    public Loan createLoan() {
-        Loan loan = new Loan();
-        return loan;
+    public Loan createLoan(Loan loan) {
+        return null;
     }
 
     @Override
-    public Loan getLoan() {
-        Loan loan = new Loan();
-        return loan;
+    public Loan getLoan(String loadId) {
+        return null;
     }
 
     @Override
     public List<Loan> getAllLoans() {
-        List<Loan> loanList = null;
-        return loanList;
+        return null;
     }
 
     @Override
-    public Loan updateLoan() {
-        Loan loan = new Loan();
-        return loan;
+    public boolean updateLoan(Loan loan) {
+        return false;
     }
 
     @Override
-    public Loan deleteLoan() {
+    public boolean deleteLoan(String loadId) {
         Loan loan = new Loan();
-        return loan;
+        return false;
     }
 }

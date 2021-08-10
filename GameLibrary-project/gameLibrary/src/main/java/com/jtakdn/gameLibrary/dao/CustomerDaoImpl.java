@@ -44,7 +44,7 @@ public class CustomerDaoImpl implements CustomerDao{
     @Override
     @Transactional
     public boolean updateCustomer(Customer customer) {
-        if(get(customer.getCustomerId()) != null) {
+        if(getCustomer(customer.getCustomerId()) != null) {
             final String sql = "UPDATE Customer SET "
                     + "FirstName = ?, "
                     + "LastName = ?, "
@@ -63,7 +63,7 @@ public class CustomerDaoImpl implements CustomerDao{
     @Override
     @Transactional
     public boolean deleteCustomer(String customerId) {
-        if (get(customerId) != null) {
+        if (getCustomer(customerId) != null) {
             final String sql = "DELETE FROM Customer WHERE CustomerId = ?";
             return jdbcTemplate.update(sql, customerId) > 0;
         }

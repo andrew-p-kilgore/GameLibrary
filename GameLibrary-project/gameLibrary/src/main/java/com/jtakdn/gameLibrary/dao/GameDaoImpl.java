@@ -41,15 +41,13 @@ public class GameDaoImpl implements GameDao{
     }
 
     @Override
-    public Game updateGame() {
-        Game game = new Game();
-        return game;
+    public boolean updateGame(Game game) {
+        return false;
     }
 
     @Override
-    public Game deleteGame() {
-        Game game = new Game();
-        return game;
+    public boolean deleteGame(String gameId) {
+        return false;
     }
 
     private static final class GameMapper implements RowMapper<Game> {
