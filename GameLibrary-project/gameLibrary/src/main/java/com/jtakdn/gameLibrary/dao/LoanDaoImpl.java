@@ -43,12 +43,12 @@ public class LoanDaoImpl implements LoanDao{
     public boolean update(Loan loan) {
         if(get(loan.getCustomerId()) != null) {
             final String sql = "UPDATE GameLoans SET "
-                    + "FirstName = ?, "
-                    + "LastName = ?, "
-                    + "PhoneNumber = ?, "
-                    + "Address = ?"
-                    + "CardNumber = ?"
-                    + "WHERE CustomerId = ?;";
+                    + "GameId = ?, "
+                    + "CustomerId = ?, "
+                    + "StartDate = ?, "
+                    + "EndDate = ?"
+                    + "Cost = ?"
+                    + "WHERE LoanId = ?;";
             return jdbcTemplate.update(sql, loan.getGameId(),
                     loan.getCustomerId(), loan.getStartDate(),
                     loan.getEndDate(), loan.getCost(),
