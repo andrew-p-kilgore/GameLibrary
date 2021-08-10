@@ -4,6 +4,7 @@ import com.jtakdn.gameLibrary.dto.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import java.util.List;
 public class GameDaoImpl implements GameDao{
 
     @Autowired
-    JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    JdbcTemplate jdbcTemplate;
 
     @Override
     public Game create(Game game) {
@@ -39,15 +40,32 @@ public class GameDaoImpl implements GameDao{
     }
 
     @Override
-    public Game update() {
-        Game game = new Game();
-        return game;
+    @Transactional
+    public boolean update(Game game) {
+        if(get(game.getGameId()) != null) {
+            final String sql = "UPDATE VideoGame SET "
+                    + "GameName = ?, "
+                    + "Genre = ?, "
+                    + "Platform = ?"
+                    + "GameYear = ?"
+                    + "Publisher = ? "
+                    + "WHERE GameId = ?;";
+            return jdbcTemplate.update(sql, game.getGameName(),
+                    game.getGameGenre(), game.getGamePlatform(),
+                    game.getGameYear(), game.getGamePublisher(),
+                    game.getGameId()) > 0;
+        }
+        else return false;
     }
 
     @Override
-    public Game delete() {
-        Game game = new Game();
-        return game;
+    @Transactional
+    public boolean delete(String gameId) {
+        if (get(gameId) != null) {
+            final String sql = "DELETE FROM VideoGame WHERE GameId = ?";
+            return jdbcTemplate.update(sql, gameId) > 0;
+        }
+        else return false;
     }
 
     private static final class GameMapper implements RowMapper<Game> {

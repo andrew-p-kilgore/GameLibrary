@@ -12,8 +12,8 @@ public interface GameDao {
 
     public List<Game> getAll();
 
-    public Game update();
+    public boolean update(Game game);
 
-    public Game delete();
+    public boolean delete(String gameId);
 
 }
