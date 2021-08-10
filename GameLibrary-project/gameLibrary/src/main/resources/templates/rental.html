@@ -34,12 +34,12 @@
     <section class="container-fluid">
       <div class="row">
         <div class="col-lg-7 col-md">
-            <h2><em>Rentals:</em></h2>
-            <table id="allRentalsTable" class="realTables">
+            <h2><em>Rental:</em></h2>
+            <table id="oneRentalTable" class="realTables table-striped">
             <caption
               style="caption-side: top; text-align: center; color: #5b7d87"
             >
-              <h2>Rentals</h2>
+              <h2>Rental</h2>
             </caption>
             <tr>
               <th>ID</th>
@@ -50,37 +50,38 @@
               <th>Cost</th>
             </tr>
             <tbody class="tbody">
-              <tr th:each="rental : ${rentals}">
+              <tr>
                   <td th:text="${rental.loanId}">loanId</td>
                   <td th:text="${rental.customerId}">customerId</td>
                   <td th:text="${rental.gameId}">gameId</td>
                   <td th:text="${rental.startDate}">startDate</td>
                   <td th:text="${rental.endDate}">endDate</td>
                   <td th:text="${rental.cost}">cost</td>
+                  <td href="#" th:href="@{deleteRent(rentID=${rental.loanId})}">Delete</td>
                </tr>
             </tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
-            <h3 style="margin-top: 8%;">Add Rental</h3>
-                  <form action="addRent" method="POST" class="form">
+            <h3 style="margin-top: 8%;">Edit Rental</h3>
+                  <form action="addStore" method="POST" class="form">
                       <div class="form-group">
-                          <label class="col-4" for="newRentCid">Customer ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentCid" min="1" required name="customerID" placeholder="Customer ID"/>
+                          <label class="col-4" for="editRentCid">Customer ID</label>
+                          <input class="col-8 form-control" type="number" id="editRentCid" min="1" required name="customerID" placeholder="Customer ID"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentGid">Game ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentGid" min="1" required name="gameID" placeholder="Game ID"/>
+                          <label class="col-4" for="editRentGid">Game ID</label>
+                          <input class="col-8 form-control" type="number" id="editRentGid" min="1" required name="gameID" placeholder="Game ID"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentStart">Start Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentStart" required name="startDate"/>
+                          <label class="col-4" for="editRentStart">Start Date</label>
+                          <input class="col-8 form-control" type="date" id="editRentStart" required name="startDate"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentEnd">End Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentEnd" required name="endDate" />
+                          <label class="col-4" for="editRentEnd">End Date</label>
+                          <input class="col-8 form-control" type="date" id="editRentEnd" required name="endDate" />
                       </div>
-                      <button type="submit" class="btn btn-primary">Add Rental</button>
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>
         </div>
       </div>

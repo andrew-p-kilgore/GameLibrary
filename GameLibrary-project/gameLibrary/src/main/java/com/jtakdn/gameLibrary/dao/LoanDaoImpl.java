@@ -19,7 +19,7 @@ public class LoanDaoImpl implements LoanDao{
     }
 
     @Override
-    public List<Loan> getAllLoan() {
+    public List<Loan> getAllLoans() {
         List<Loan> loanList = null;
         return loanList;
     }

@@ -4,6 +4,7 @@ import com.jtakdn.gameLibrary.dto.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,9 +13,10 @@ import java.util.List;
 public class GameDaoImpl implements GameDao{
 
     @Autowired
-    JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    JdbcTemplate jdbcTemplate;
 
     @Override
+    @Transactional
     public Game createGame(Game game) {
         final String INSERT_GAME = "INSERT INTO VideoGame(GameName, Genre, Platform,"
                 + " GameYear, Publisher) values(?,?,?,?,?)";

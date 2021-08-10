@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -46,7 +49,16 @@
               <th>Publisher</th>
               <th>Genre</th>
             </tr>
-            <tbody class="tbody"></tbody>
+            <tbody class="tbody">
+              <tr th:each="game : ${games}">
+                  <td th:text="${game.gameId}">gameId</td>
+                  <td th:text="${game.gameName}">gameName</td>
+                  <td th:text="${game.gamePlatform}">gamePlatform</td>
+                  <td th:text="${game.gameYear}">gameYear</td>
+                  <td th:text="${game.gamePublisher}">gamePublisher</td>
+                  <td th:text="${game.gameGenre}">gameGenre</td>
+               </tr>
+            </tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
@@ -54,23 +66,23 @@
                   <form action="addGame" method="POST" class="form">
                       <div class="form-group">
                           <label class="col-4" for="newGameTitle">Title</label>
-                          <input class="col-8 form-control" type="text" id="newGameTitle" name="name" placeholder="50 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="newGameTitle" name="gameName" maxlength="50" required placeholder="50 Character Max"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newGamePlat">Platform</label>
-                          <input class="col-8 form-control" type="text" id="newGamePlat" name="platform" placeholder="5 Character abbreviation"/>
+                          <input class="col-8 form-control" type="text" id="newGamePlat" name="gamePlatform" maxlength="5" required placeholder="5 Character abbreviation"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newGameYear">Year</label>
-                          <input class="col-8 form-control" type="text" id="newGameYear" name="year" placeholder="YYYY"/>
+                          <input class="col-8 form-control" type="number" id="newGameYear" name="gameYear" min="1980" max="2021" placeholder="YYYY"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newGamePub">Publisher</label>
-                          <input class="col-8 form-control" type="text" id="newGamePub" name="publisher" placeholder="50 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="newGamePub" name="gamePublisher" maxlength="50" placeholder="50 Character Max"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newGameGenre">Genre</label>
-                          <input class="col-8 form-control" type="text" id="newGameGenre" name="genre" placeholder="15 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="newGameGenre" name="gameGenre" maxlength="15" placeholder="15 Character Max"/>
                       </div>
                       <button type="submit" class="btn btn-primary">Add Game</button>
                   </form>
