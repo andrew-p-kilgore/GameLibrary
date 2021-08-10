@@ -10,8 +10,8 @@ import java.util.List;
 public class LoanDaoImpl implements LoanDao{
 
     @Override
-    public Loan createLoan(Loan loan) {
-        return null;
+    public void createLoan(Loan loan){
+        
     }
 
     @Override

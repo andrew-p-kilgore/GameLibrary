@@ -19,7 +19,7 @@ public class GameDaoImpl implements GameDao{
 
     @Override
     @Transactional
-    public Game createGame(Game game) {
+    public void createGame(Game game) {
         final String INSERT_GAME = "INSERT INTO VideoGame(GameName, Genre, Platform,"
                 + " GameYear, Publisher) values(?,?,?,?,?)";
         jdbcTemplate.update(INSERT_GAME, game.getGameName(),
@@ -27,7 +27,6 @@ public class GameDaoImpl implements GameDao{
                 game.getGameYear(), game.getGamePublisher());
         String newId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", String.class);
         game.setGameId(newId);
-        return game;
     }
 
     @Override

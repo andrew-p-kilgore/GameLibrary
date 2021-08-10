@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerDao {
 
-    public Customer createCustomer(Customer customer);
+    public void createCustomer(Customer customer);
 
     public Customer getCustomer(String customerId);
 

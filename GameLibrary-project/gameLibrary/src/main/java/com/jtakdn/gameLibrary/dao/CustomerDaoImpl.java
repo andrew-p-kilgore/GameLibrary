@@ -20,7 +20,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     @Transactional
-    public Customer createCustomer(Customer customer) {
+    public void createCustomer(Customer customer) {
         final String INSERT_GAME = "INSERT INTO Customer(FirstName, LastName, PhoneNumber,"
             + " Address, CardNumber) values(?,?,?,?,?)";
         jdbcTemplate.update(INSERT_GAME, customer.getFirstName(),
@@ -28,7 +28,6 @@ public class CustomerDaoImpl implements CustomerDao{
             customer.getAddress(), customer.getCardNumber());
         String newId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", String.class);
         customer.setCustomerId(newId);
-        return customer;
     }
 
     @Override

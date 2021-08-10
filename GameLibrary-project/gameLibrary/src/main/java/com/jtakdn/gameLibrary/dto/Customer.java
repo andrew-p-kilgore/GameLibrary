@@ -4,16 +4,19 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class Customer {
-
     private String customerId;
+
     @NotNull
     @NotBlank(message = "First name is mandatory.")
     private String firstName;
+
     private String lastName;
     private String phoneNumber;
+
     @NotNull
     @NotBlank(message = "Address is mandatory.")
     private String address;
+    
     @NotNull
     @NotBlank(message = "Card number is mandatory.")
     private String cardNumber;
