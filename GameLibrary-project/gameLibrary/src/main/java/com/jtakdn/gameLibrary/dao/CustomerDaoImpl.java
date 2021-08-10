@@ -38,9 +38,4 @@ public class CustomerDaoImpl implements CustomerDao{
         return customer;
     }
 
-    public static final class CustomerMapper implements CustomerMapper<Customer> {
-        public Customer mapCustomer(ResultSet rs, int index) throws SQLException{
-            Customer ct = new Customer();
-        }
-    }
 }
