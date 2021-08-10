@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -46,27 +49,36 @@
               <th>End Date</th>
               <th>Cost</th>
             </tr>
-            <tbody class="tbody"></tbody>
+            <tbody class="tbody">
+              <tr th:each="rental : ${rentals}">
+                  <td th:text="${rental.loanId}">loanId</td>
+                  <td th:text="${rental.customerId}">customerId</td>
+                  <td th:text="${rental.gameId}">gameId</td>
+                  <td th:text="${rental.startDate}">startDate</td>
+                  <td th:text="${rental.endDate}">endDate</td>
+                  <td th:text="${rental.cost}">cost</td>
+               </tr>
+            </tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
             <h3 style="margin-top: 8%;">Add Rental</h3>
-                  <form action="addStore" method="POST" class="form">
+                  <form action="addRent" method="POST" class="form">
                       <div class="form-group">
                           <label class="col-4" for="newRentCid">Customer ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentCid" name="customerID" placeholder="Customer ID"/>
+                          <input class="col-8 form-control" type="number" id="newRentCid" min="1" required name="customerID" placeholder="Customer ID"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newRentGid">Game ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentGid" name="gameID" placeholder="Game ID"/>
+                          <input class="col-8 form-control" type="number" id="newRentGid" min="1" required name="gameID" placeholder="Game ID"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newRentStart">Start Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentStart" name="startDate"/>
+                          <input class="col-8 form-control" type="date" id="newRentStart" required name="startDate"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="newRentEnd">End Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentEnd" name="endDate" />
+                          <input class="col-8 form-control" type="date" id="newRentEnd" required name="endDate" />
                       </div>
                       <button type="submit" class="btn btn-primary">Add Rental</button>
                   </form>

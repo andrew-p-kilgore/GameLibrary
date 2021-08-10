@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -45,8 +48,19 @@
               <th>Year</th>
               <th>Publisher</th>
               <th>Genre</th>
+              <th>Delete</th>
             </tr>
-            <tbody class="tbody"></tbody>
+            <tbody class="tbody">
+              <tr>
+                  <td th:text="${game.gameId}">gameId</td>
+                  <td th:text="${game.gameName}">gameName</td>
+                  <td th:text="${game.gamePlatform}">gamePlatform</td>
+                  <td th:text="${game.gameYear}">gameYear</td>
+                  <td th:text="${game.gamePublisher}">gamePublisher</td>
+                  <td th:text="${game.gameGenre}">gameGenre</td>
+                  <td href="#" th:href="@{deleteGame(gameID=${game.gameId})}">Delete</td>
+               </tr>
+            </tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
@@ -54,26 +68,25 @@
                   <form action="addGame" method="POST" class="form">
                       <div class="form-group">
                           <label class="col-4" for="editGameTitle">Title</label>
-                          <input class="col-8 form-control" type="text" id="editGameTitle" name="name" placeholder="50 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="editGameTitle" name="gameName" maxlength="50" required placeholder="50 Character Max"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="editGamePlat">Platform</label>
-                          <input class="col-8 form-control" type="text" id="editGamePlat" name="platform" placeholder="5 Character abbreviation"/>
+                          <input class="col-8 form-control" type="text" id="editGamePlat" name="gamePlatform" maxlength="5" required placeholder="5 Character abbreviation"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="editGameYear">Year</label>
-                          <input class="col-8 form-control" type="text" id="editGameYear" name="year" placeholder="YYYY"/>
+                          <input class="col-8 form-control" type="text" id="editGameYear" name="gameYear" min="1980" max="2021" placeholder="YYYY"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="editGamePub">Publisher</label>
-                          <input class="col-8 form-control" type="text" id="editGamePub" name="publisher" placeholder="50 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="editGamePub" name="gamePublisher" maxlength="50" placeholder="50 Character Max"/>
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="editGameGenre">Genre</label>
-                          <input class="col-8 form-control" type="text" id="editGameGenre" name="genre" placeholder="15 Character Max"/>
+                          <input class="col-8 form-control" type="text" id="editGameGenre" name="gameGenre" maxlength="15" placeholder="15 Character Max"/>
                       </div>
                       <button type="submit" class="btn btn-primary">Save Changes</button>
-                      <button type="submit" formaction="#" class="btn btn-danger">Delete</button>
                   </form>
         </div>
       </div>

@@ -30,13 +30,13 @@ public class WebController
      * @GetMapping("/rentals") public String rentals(Model model) {
      * model.addAttribute("rentals",serv.getAllrentals()); return "rentals"; }
      * 
-     * @GetMapping("/deleteCust") public String delCust(Integer custID, Model
+     * @GetMapping("/deleteCust") public String deleteCust(Integer custID, Model
      * model) { serv.deleteCust(custID); return "redirect:/customers"; }
      * 
-     * @GetMapping("/deleteRent") public String delRent(Integer rentID, Model
+     * @GetMapping("/deleteRent") public String deleteRent(Integer rentID, Model
      * model) { serv.deleteRent(rentID); return "redirect:/rentals"; }
      * 
-     * @GetMapping("/deleteGame") public String delGame(Integer gameID, Model
+     * @GetMapping("/deleteGame") public String deleteGame(Integer gameID, Model
      * model) { serv.deleteGame(gameID); return "redirect:/games"; }
      */
 
