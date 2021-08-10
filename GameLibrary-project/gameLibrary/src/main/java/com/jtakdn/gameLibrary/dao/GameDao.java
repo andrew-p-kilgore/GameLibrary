@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface GameDao {
 
-    public Game create();
+    public Game create(Game game);
 
-    public Game get();
+    public Game get(String gameId);
 
     public List<Game> getAll();
 
