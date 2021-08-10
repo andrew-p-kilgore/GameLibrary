@@ -2,38 +2,36 @@ package com.jtakdn.gameLibrary.dao;
 
 import com.jtakdn.gameLibrary.dto.Customer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerDaoImpl implements CustomerDao{
 
     @Override
-    public Customer create() {
+    public Customer createCustomer() {
         Customer customer = new Customer();
         return customer;
     }
 
     @Override
-    public Customer get() {
+    public Customer getCustomer() {
         Customer customer = new Customer();
         return customer;
     }
 
     @Override
-    public List<Customer> getAll() {
+    public List<Customer> getAllCustomers() {
         List<Customer> customerList = null;
         return customerList;
     }
 
     @Override
-    public Customer update() {
+    public Customer updateCustomer() {
         Customer customer = new Customer();
         return customer;
     }
 
     @Override
-    public Customer delete() {
+    public Customer deleteCustomer() {
         Customer customer = new Customer();
         return customer;
     }

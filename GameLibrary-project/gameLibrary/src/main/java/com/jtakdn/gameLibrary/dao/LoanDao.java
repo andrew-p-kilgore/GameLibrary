@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface LoanDao {
 
-    public Loan create();
+    public Loan createLoan();
 
-    public Loan get();
+    public Loan getLoan();
 
-    public List<Loan> getAll();
+    public List<Loan> getAllLoans();
 
-    public Loan update();
+    public Loan updateLoan();
 
-    public Loan delete();
+    public Loan deleteLoan();
 
 }

@@ -15,7 +15,7 @@ public class GameDaoImpl implements GameDao{
     JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
     @Override
-    public Game create(Game game) {
+    public Game createGame(Game game) {
         final String INSERT_GAME = "INSERT INTO VideoGame(GameName, Genre, Platform,"
                 + " GameYear, Publisher) values(?,?,?,?,?)";
         jdbcTemplate.update(INSERT_GAME, game.getGameName(),
@@ -27,25 +27,25 @@ public class GameDaoImpl implements GameDao{
     }
 
     @Override
-    public Game get(String gameId) {
+    public Game getGame(String gameId) {
         final String sql = "SELECT * FROM VideoGame WHERE GameId = ?";
         return jdbcTemplate.queryForObject(sql, new GameMapper(), gameId);
     }
 
     @Override
-    public List<Game> getAll() {
+    public List<Game> getAllGames() {
         final String sql = "SELECT * FROM VideoGame;";
         return jdbcTemplate.query(sql, new GameMapper());
     }
 
     @Override
-    public Game update() {
+    public Game updateGame() {
         Game game = new Game();
         return game;
     }
 
     @Override
-    public Game delete() {
+    public Game deleteGame() {
         Game game = new Game();
         return game;
     }
