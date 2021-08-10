@@ -3,17 +3,16 @@ package com.jtakdn.gameLibrary.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import com.jtakdn.gameLibrary.service.GameLibraryServiceLayer;
+import com.jtakdn.gameLibrary.service.GameLibraryServiceLayerImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class WebController
 {
     @Autowired
-    GameLibraryServiceLayer serv;
+    GameLibraryServiceLayerImpl serv;
 
     @GetMapping("/")
     public String index(Model model)
@@ -24,7 +23,7 @@ public class WebController
     @GetMapping("/customers")
     public String customers(Model model)
     {
-        model.addAttribute("customers", serv.getAllCustomers());
+        //model.addAttribute("customers", serv.getAllCustomers());
         return "customers";
     }
 
@@ -45,21 +44,21 @@ public class WebController
     @GetMapping("/deleteCust")
     public String deleteCust(Integer custID, Model model)
     {
-        serv.deleteCustomer(custID.intValue());
+        //serv.deleteCustomer(custID.intValue());
         return "redirect:/customers";
     }
 
     @GetMapping("/deleteRent")
     public String deleteRent(Integer rentID, Model model)
     {
-        serv.deleteLoan(rentID);
+        //serv.deleteLoan(rentID);
         return "redirect:/rentals";
     }
 
     @GetMapping("/deleteGame")
     public String deleteGame(Integer gameID, Model model)
     {
-        serv.deleteGame(gameID);
+        //serv.deleteGame(gameID);
         return "redirect:/games";
     }
 

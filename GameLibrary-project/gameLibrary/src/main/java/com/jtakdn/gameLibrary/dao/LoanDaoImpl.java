@@ -2,8 +2,11 @@ package com.jtakdn.gameLibrary.dao;
 
 import com.jtakdn.gameLibrary.dto.Loan;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public class LoanDaoImpl implements LoanDao{
 
     @Override
@@ -28,7 +31,6 @@ public class LoanDaoImpl implements LoanDao{
 
     @Override
     public boolean deleteLoan(String loadId) {
-        Loan loan = new Loan();
         return false;
     }
 }
