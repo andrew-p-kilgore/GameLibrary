@@ -5,6 +5,7 @@ import com.jtakdn.gameLibrary.dto.Loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class LoanDaoImpl implements LoanDao{
     JdbcTemplate jdbcTemplate;
 
     @Override
+    @Transactional
     public Loan create(Loan loan) {
         final String INSERT_GAME = "INSERT INTO GameLoans(GameId, CustomerId, StartDate,"
             + " EndDate, Cost) values(?,?,?,?,?)";
@@ -40,6 +42,7 @@ public class LoanDaoImpl implements LoanDao{
     }
 
     @Override
+    @Transactional
     public boolean update(Loan loan) {
         if(get(loan.getCustomerId()) != null) {
             final String sql = "UPDATE GameLoans SET "
@@ -58,6 +61,7 @@ public class LoanDaoImpl implements LoanDao{
     }
 
     @Override
+    @Transactional
     public boolean delete(String loanId) {
         if (get(loanId) != null) {
             final String sql = "DELETE FROM GameLoans WHERE LoanId = ?";

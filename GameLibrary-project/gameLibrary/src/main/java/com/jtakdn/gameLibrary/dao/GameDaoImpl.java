@@ -16,6 +16,7 @@ public class GameDaoImpl implements GameDao{
     JdbcTemplate jdbcTemplate;
 
     @Override
+    @Transactional
     public Game create(Game game) {
         final String INSERT_GAME = "INSERT INTO VideoGame(GameName, Genre, Platform,"
                 + " GameYear, Publisher) values(?,?,?,?,?)";

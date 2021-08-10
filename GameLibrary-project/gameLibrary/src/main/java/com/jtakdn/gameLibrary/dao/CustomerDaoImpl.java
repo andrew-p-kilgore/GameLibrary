@@ -5,6 +5,7 @@ import com.jtakdn.gameLibrary.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class CustomerDaoImpl implements CustomerDao{
     JdbcTemplate jdbcTemplate;
 
     @Override
+    @Transactional
     public Customer create(Customer customer) {
         final String INSERT_GAME = "INSERT INTO Customer(FirstName, LastName, PhoneNumber,"
             + " Address, CardNumber) values(?,?,?,?,?)";
@@ -40,6 +42,7 @@ public class CustomerDaoImpl implements CustomerDao{
     }
 
     @Override
+    @Transactional
     public boolean update(Customer customer) {
         if(get(customer.getCustomerId()) != null) {
             final String sql = "UPDATE Customer SET "
@@ -58,6 +61,7 @@ public class CustomerDaoImpl implements CustomerDao{
     }
 
     @Override
+    @Transactional
     public boolean delete(String customerId) {
         if (get(customerId) != null) {
             final String sql = "DELETE FROM Customer WHERE CustomerId = ?";
