@@ -16,7 +16,7 @@ public class Customer {
     @NotNull
     @NotBlank(message = "Address is mandatory.")
     private String address;
-    
+
     @NotNull
     @NotBlank(message = "Card number is mandatory.")
     private String cardNumber;
