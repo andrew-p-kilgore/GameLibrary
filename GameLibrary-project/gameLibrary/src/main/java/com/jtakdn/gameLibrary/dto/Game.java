@@ -1,10 +1,17 @@
 package com.jtakdn.gameLibrary.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Game {
 
     private String gameId;
+    @NotNull
+    @NotBlank(message = "Game name is mandatory.")
     private String gameName;
     private String gameGenre;
+    @NotNull
+    @NotBlank(message = "Game platform is mandatory.")
     private String gamePlatform;
     private String gameYear;
     private String gamePublisher;

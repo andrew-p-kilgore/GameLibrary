@@ -1,11 +1,24 @@
 package com.jtakdn.gameLibrary.dto;
 
-public class Loan {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+public class Loan
+{
+
+    
     private String loanId;
+    @NotNull
+    @NotBlank(message = "Game ID is mandatory.")
     private String gameId;
+    @NotNull
+    @NotBlank(message = "Customer ID is mandatory.")
     private String customerId;
+    @NotNull
+    @NotBlank(message = "Start Date is mandatory.")
     private String startDate; // These two can be changed to a Date format
+    @NotNull
+    @NotBlank(message = "End Date is mandatory.")
     private String endDate;
     private String cost;
 
