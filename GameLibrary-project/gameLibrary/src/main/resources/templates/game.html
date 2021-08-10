@@ -31,44 +31,49 @@
     <section class="container-fluid">
       <div class="row">
         <div class="col-lg-7 col-md">
-            <h2><em>Rentals:</em></h2>
-            <table id="allRentalsTable" class="realTables">
+            <h2><em>Game:</em></h2>
+            <table id="oneGameTable" class="realTables">
             <caption
               style="caption-side: top; text-align: center; color: #5b7d87"
             >
-              <h2>Rentals</h2>
+              <h2>Game</h2>
             </caption>
             <tr>
               <th>ID</th>
-              <th>Customer ID</th>
-              <th>Game ID</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Cost</th>
+              <th>Title</th>
+              <th>Platform</th>
+              <th>Year</th>
+              <th>Publisher</th>
+              <th>Genre</th>
             </tr>
             <tbody class="tbody"></tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
-            <h3 style="margin-top: 8%;">Add Rental</h3>
-                  <form action="addStore" method="POST" class="form">
+            <h3 style="margin-top: 8%;">Edit Game</h3>
+                  <form action="addGame" method="POST" class="form">
                       <div class="form-group">
-                          <label class="col-4" for="newRentCid">Customer ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentCid" name="customerID" placeholder="Customer ID"/>
+                          <label class="col-4" for="editGameTitle">Title</label>
+                          <input class="col-8 form-control" type="text" id="editGameTitle" name="name" placeholder="50 Character Max"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentGid">Game ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentGid" name="gameID" placeholder="Game ID"/>
+                          <label class="col-4" for="editGamePlat">Platform</label>
+                          <input class="col-8 form-control" type="text" id="editGamePlat" name="platform" placeholder="5 Character abbreviation"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentStart">Start Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentStart" name="startDate"/>
+                          <label class="col-4" for="editGameYear">Year</label>
+                          <input class="col-8 form-control" type="text" id="editGameYear" name="year" placeholder="YYYY"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentEnd">End Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentEnd" name="endDate" />
+                          <label class="col-4" for="editGamePub">Publisher</label>
+                          <input class="col-8 form-control" type="text" id="editGamePub" name="publisher" placeholder="50 Character Max"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">Add Rental</button>
+                      <div class="form-group">
+                          <label class="col-4" for="editGameGenre">Genre</label>
+                          <input class="col-8 form-control" type="text" id="editGameGenre" name="genre" placeholder="15 Character Max"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" formaction="#" class="btn btn-danger">Delete</button>
                   </form>
         </div>
       </div>

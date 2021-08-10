@@ -31,44 +31,49 @@
     <section class="container-fluid">
       <div class="row">
         <div class="col-lg-7 col-md">
-            <h2><em>Rentals:</em></h2>
-            <table id="allRentalsTable" class="realTables">
+            <h2><em>Customer:</em></h2>
+            <table id="oneCustomerTable" class="realTables">
             <caption
               style="caption-side: top; text-align: center; color: #5b7d87"
             >
-              <h2>Rentals</h2>
+              <h2>Customer</h2>
             </caption>
             <tr>
               <th>ID</th>
-              <th>Customer ID</th>
-              <th>Game ID</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Cost</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Card</th>
             </tr>
             <tbody class="tbody"></tbody>
           </table>
         </div>
         <div class="col-lg-5 col-md">
-            <h3 style="margin-top: 8%;">Add Rental</h3>
+            <h3 style="margin-top: 8%;">Edit Customer</h3>
                   <form action="addStore" method="POST" class="form">
                       <div class="form-group">
-                          <label class="col-4" for="newRentCid">Customer ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentCid" name="customerID" placeholder="Customer ID"/>
+                          <label class="col-4" for="editCustFname">First Name</label>
+                          <input class="col-8 form-control" type="text" id="editCustFname" name="firstName" placeholder="First 15 Characters"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentGid">Game ID</label>
-                          <input class="col-8 form-control" type="number" id="newRentGid" name="gameID" placeholder="Game ID"/>
+                          <label class="col-4" for="editCustLname">Last Name</label>
+                          <input class="col-8 form-control" type="text" id="editCustLname" name="lastName" placeholder="First 25 Characters"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentStart">Start Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentStart" name="startDate"/>
+                          <label class="col-4" for="editCustPhone">Phone</label>
+                          <input class="col-8 form-control" type="text" id="editCustPhone" name="phone" placeholder="(999) 999-9999"/>
                       </div>
                       <div class="form-group">
-                          <label class="col-4" for="newRentEnd">End Date</label>
-                          <input class="col-8 form-control" type="date" id="newRentEnd" name="endDate" />
+                          <label class="col-4" for="editCustAdd">Address</label>
+                          <input class="col-8 form-control" type="text" id="editCustAdd" name="address" placeholder="First 50 Characters"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">Add Rental</button>
+                      <div class="form-group">
+                          <label class="col-4" for="editCustCard">Card Number</label>
+                          <input class="col-8 form-control" type="password" id="editCustCard" name="cardNum" placeholder="999999999999"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" formaction="#" class="btn btn-danger">Delete</button>
                   </form>
         </div>
       </div>
