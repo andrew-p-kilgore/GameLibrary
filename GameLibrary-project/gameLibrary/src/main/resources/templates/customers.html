@@ -51,7 +51,7 @@
             </tr>
             <tbody class="tbody">
                <tr th:each="customer : ${customers}">
-                  <td th:text="${customer.customerId}">customerId</td>
+                  <td><a href="#" th:href="@{getCustByID(custID=${customer.customerId})}" th:text="${customer.customerId}">customerId</a></td>
                   <td th:text="${customer.firstName}">firstName</td>
                   <td th:text="${customer.lastName}">lastName</td>
                   <td th:text="${customer.phoneNumber}">phoneNumber</td>

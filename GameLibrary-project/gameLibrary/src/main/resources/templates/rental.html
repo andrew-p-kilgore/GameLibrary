@@ -57,7 +57,7 @@
                   <td th:text="${rental.startDate}">startDate</td>
                   <td th:text="${rental.endDate}">endDate</td>
                   <td th:text="${rental.cost}">cost</td>
-                  <td href="#" th:href="@{deleteRent(rentID=${rental.loanId})}">Delete</td>
+                  <td><a href="#" th:href="@{deleteRent(rentID=${rental.loanId})}">Delete</a></td>
                </tr>
             </tbody>
           </table>

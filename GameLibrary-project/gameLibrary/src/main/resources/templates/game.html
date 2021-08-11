@@ -58,7 +58,7 @@
                   <td th:text="${game.gameYear}">gameYear</td>
                   <td th:text="${game.gamePublisher}">gamePublisher</td>
                   <td th:text="${game.gameGenre}">gameGenre</td>
-                  <td href="#" th:href="@{deleteGame(gameID=${game.gameId})}">Delete</td>
+                  <td><a href="#" th:href="@{deleteGame(gameID=${game.gameId})}">Delete</a></td>
                </tr>
             </tbody>
           </table>

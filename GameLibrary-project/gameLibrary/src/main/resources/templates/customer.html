@@ -58,7 +58,7 @@
                   <td th:text="${customer.phoneNumber}">phoneNumber</td>
                   <td th:text="${customer.address}">address</td>
                   <td th:text="${customer.cardNumber}">cardNumber</td>
-                  <td href="#" th:href="@{deleteCust(custID=${customer.customerId})}">Delete</td>
+                  <td><a href="#" th:href="@{deleteCust(custID=${customer.customerId})}">Delete</a></td>
                </tr>
             </tbody>
           </table>

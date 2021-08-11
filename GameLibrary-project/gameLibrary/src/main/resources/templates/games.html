@@ -51,7 +51,7 @@
             </tr>
             <tbody class="tbody">
               <tr th:each="game : ${games}">
-                  <td th:text="${game.gameId}">gameId</td>
+                  <td><a href="#" th:href="@{getGameByID(gameID=${game.gameId})}" th:text="${game.gameId}">gameId</a></td>
                   <td th:text="${game.gameName}">gameName</td>
                   <td th:text="${game.gamePlatform}">gamePlatform</td>
                   <td th:text="${game.gameYear}">gameYear</td>

@@ -62,4 +62,26 @@ public class WebController
         return "redirect:/games";
     }
 
+    @GetMapping("/getGameByID")
+    public String getGameByID(String gameID, Model model)
+    {
+        model.addAttribute("game", serv.getGame(gameID));
+        return "game";
+    }
+
+    @GetMapping("/getLoanByID")
+    public String getRentalByID(String loanID, Model model)
+    {
+        model.addAttribute("rental", serv.getLoan(loanID));
+        return "rental";
+    }
+
+    @GetMapping("/getCustByID")
+    public String getCustByID(String custID, Model model)
+    {
+        model.addAttribute("customer", serv.getCustomer(custID));
+        return "customer";
+    }
+
+
 }

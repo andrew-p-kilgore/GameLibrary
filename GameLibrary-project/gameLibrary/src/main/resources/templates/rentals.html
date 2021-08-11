@@ -51,7 +51,7 @@
             </tr>
             <tbody class="tbody">
               <tr th:each="rental : ${rentals}">
-                  <td th:text="${rental.loanId}">loanId</td>
+                  <td><a href="#" th:href="@{getRentalByID(loanID=${rental.loanId})}" th:text="${rental.loanId}">loanId</a></td>
                   <td th:text="${rental.customerId}">customerId</td>
                   <td th:text="${rental.gameId}">gameId</td>
                   <td th:text="${rental.startDate}">startDate</td>
