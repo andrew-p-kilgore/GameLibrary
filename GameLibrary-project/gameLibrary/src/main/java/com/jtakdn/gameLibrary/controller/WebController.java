@@ -129,4 +129,12 @@ public class WebController
         serv.updateCustomer(newCust);
         return "redirect:/getCustByID?custID=" + newCust.getCustomerId();
     }
+
+    @PostMapping("/editLoan")
+    public String editLoan(@Valid Loan newLoan, BindingResult result) 
+    {
+        if (result.hasErrors()) return "/rentals";
+        serv.updateLoan(newLoan);
+        return "redirect:/getRentalByID?loanID=" + newLoan.getLoanId();
+    }
 }
