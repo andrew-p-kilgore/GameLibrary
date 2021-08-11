@@ -131,6 +131,15 @@ public class Loan
             if (!startDate.equals(other.startDate)) return false;
         return true;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Loan [cost=" + cost + ", customerId=" + customerId
+                + ", endDate=" + endDate + ", gameId=" + gameId + ", loanId="
+                + loanId + ", startDate=" + startDate + "]";
+    }
+    
     
     
 }

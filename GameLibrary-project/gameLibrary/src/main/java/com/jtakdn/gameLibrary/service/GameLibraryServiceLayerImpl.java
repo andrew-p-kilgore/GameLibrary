@@ -1,5 +1,7 @@
 package com.jtakdn.gameLibrary.service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import com.jtakdn.gameLibrary.dao.CustomerDao;
@@ -67,6 +69,11 @@ public class GameLibraryServiceLayerImpl implements GameLibraryServiceLayer
     @Override
     public Loan createLoan(Loan loan)
     {
+        LocalDate start = LocalDate.parse(loan.getStartDate());
+        LocalDate end = LocalDate.parse(loan.getEndDate());
+        long elapsed = ChronoUnit.DAYS.between(start, end);
+        int cost = (int) elapsed * 2;
+        loan.setCost(String.valueOf(cost));
         return loanDao.createLoan(loan);
     }
 
@@ -79,6 +86,11 @@ public class GameLibraryServiceLayerImpl implements GameLibraryServiceLayer
     @Override
     public boolean updateLoan(Loan loan)
     {
+        LocalDate start = LocalDate.parse(loan.getStartDate());
+        LocalDate end = LocalDate.parse(loan.getEndDate());
+        long elapsed = ChronoUnit.DAYS.between(start, end);
+        int cost = (int) elapsed * 2;
+        loan.setCost(String.valueOf(cost));
         return loanDao.updateLoan(loan);
     }
 

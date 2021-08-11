@@ -111,7 +111,7 @@ public class WebController
     {
         if (result.hasErrors()) return "/rentals";
         newLoan = serv.createLoan(newLoan);
-        return "redirect:/getRentalByID?loanID=" + newLoan.getLoanId();
+        return "redirect:/getLoanByID?loanID=" + newLoan.getLoanId();
     }
 
     @PostMapping("/editGame")
@@ -135,6 +135,6 @@ public class WebController
     {
         if (result.hasErrors()) return "/rentals";
         serv.updateLoan(newLoan);
-        return "redirect:/getRentalByID?loanID=" + newLoan.getLoanId();
+        return "redirect:/getLoanByID?loanID=" + newLoan.getLoanId();
     }
 }

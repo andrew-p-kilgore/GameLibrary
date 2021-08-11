@@ -61,21 +61,21 @@
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentCid">Customer ID</label>
-            <input class="col-8 form-control" type="number" id="editRentCid" min="1" required name="customerID"
-              placeholder="Customer ID" />
+            <input class="col-8 form-control" type="number" id="editRentCid" min="1" required name="customerId"
+              th:value="${rental.customerId}"/>
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentGid">Game ID</label>
-            <input class="col-8 form-control" type="number" id="editRentGid" min="1" required name="gameID"
-              placeholder="Game ID" />
+            <input class="col-8 form-control" type="number" id="editRentGid" min="1" required name="gameId"
+              th:value="${rental.gameId}"/>
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentStart">Start Date</label>
-            <input class="col-8 form-control" type="date" id="editRentStart" required name="startDate" />
+            <input class="col-8 form-control" type="date" id="editRentStart" required name="startDate" th:value="${rental.startDate}"/>
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentEnd">End Date</label>
-            <input class="col-8 form-control" type="date" id="editRentEnd" required name="endDate" />
+            <input class="col-8 form-control" type="date" id="editRentEnd" required name="endDate" th:value="${rental.endDate}"/>
           </div>
           <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>

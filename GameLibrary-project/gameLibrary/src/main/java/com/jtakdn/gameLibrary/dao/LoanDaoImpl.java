@@ -19,21 +19,22 @@ public class LoanDaoImpl implements LoanDao{
     JdbcTemplate jdbcTemplate;
 
     @Override
+    @Transactional
     public Loan createLoan(Loan loan){
-        final String INSERT_GAME = "INSERT INTO VideoGame(GameId, CustomerId, StartDate,"
+        final String INSERT_GAME = "INSERT INTO GameLoans(GameId, CustomerId, StartDate,"
                 + " EndDate, Cost) values(?,?,?,?,?)";
         jdbcTemplate.update(INSERT_GAME, loan.getGameId(),
                 loan.getCustomerId(), loan.getStartDate(),
                 loan.getEndDate(), loan.getCost());
         String newId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", String.class);
-        loan.setGameId(newId);
+        loan.setLoanId(newId);
         return loan;
     }
 
     @Override
     public Loan getLoan(String loanId) {
         final String sql = "SELECT * FROM GameLoans WHERE LoanId = ?";
-        return jdbcTemplate.queryForObject(sql, new LoanMapper(), loanId);
+        return jdbcTemplate.queryForObject(sql, new LoanMapper(), Integer.parseInt(loanId));
     }
 
     @Override
@@ -66,7 +67,7 @@ public class LoanDaoImpl implements LoanDao{
     public boolean deleteLoan(String loanId) {
         if (getLoan(loanId) != null) {
             final String sql = "DELETE FROM GameLoans WHERE LoanId = ?";
-            return jdbcTemplate.update(sql, loanId) > 0;
+            return jdbcTemplate.update(sql, Integer.parseInt(loanId)) > 0;
         }
         else return false;
     }
