@@ -50,8 +50,8 @@ public class LoanDaoImpl implements LoanDao{
                     + "GameId = ?, "
                     + "CustomerId = ?, "
                     + "StartDate = ?, "
-                    + "EndDate = ?"
-                    + "Cost = ?"
+                    + "EndDate = ?, "
+                    + "Cost = ? "
                     + "WHERE LoanId = ?;";
             return jdbcTemplate.update(sql, loan.getGameId(),
                     loan.getCustomerId(), loan.getStartDate(),

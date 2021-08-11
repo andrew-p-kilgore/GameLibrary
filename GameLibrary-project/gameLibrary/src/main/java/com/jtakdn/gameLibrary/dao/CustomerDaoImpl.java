@@ -39,8 +39,8 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public List<Customer> getAllCustomers() {
-        List<Customer> customerList = null;
-        return customerList;
+        final String sql = "SELECT * FROM Customer;";
+        return jdbcTemplate.query(sql, new CustomerMapper());
     }
 
     @Override
@@ -51,8 +51,8 @@ public class CustomerDaoImpl implements CustomerDao{
                     + "FirstName = ?, "
                     + "LastName = ?, "
                     + "PhoneNumber = ?, "
-                    + "Address = ?"
-                    + "CardNumber = ?"
+                    + "Address = ?, "
+                    + "CardNumber = ? "
                     + "WHERE CustomerId = ?;";
             return jdbcTemplate.update(sql, customer.getFirstName(),
                     customer.getLastName(), customer.getPhoneNumber(),
