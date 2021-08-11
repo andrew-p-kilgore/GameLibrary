@@ -7,6 +7,7 @@ import com.jtakdn.gameLibrary.service.GameLibraryServiceLayerImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController
@@ -23,7 +24,7 @@ public class WebController
     @GetMapping("/customers")
     public String customers(Model model)
     {
-        //model.addAttribute("customers", serv.getAllCustomers());
+        model.addAttribute("customers", serv.getAllCustomers());
         return "customers";
     }
 
@@ -44,21 +45,21 @@ public class WebController
     @GetMapping("/deleteCust")
     public String deleteCust(Integer custID, Model model)
     {
-        //serv.deleteCustomer(custID.intValue());
+        serv.deleteCustomer(Integer.toString(custID.intValue()));
         return "redirect:/customers";
     }
 
     @GetMapping("/deleteRent")
     public String deleteRent(Integer rentID, Model model)
     {
-        //serv.deleteLoan(rentID);
+        serv.deleteLoan(Integer.toString(rentID));
         return "redirect:/rentals";
     }
 
     @GetMapping("/deleteGame")
     public String deleteGame(Integer gameID, Model model)
     {
-        //serv.deleteGame(gameID);
+        serv.deleteGame(Integer.toString(gameID));
         return "redirect:/games";
     }
 
