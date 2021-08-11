@@ -7,7 +7,6 @@ import com.jtakdn.gameLibrary.service.GameLibraryServiceLayerImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController
@@ -62,7 +61,5 @@ public class WebController
         serv.deleteGame(Integer.toString(gameID));
         return "redirect:/games";
     }
-
-
 
 }
