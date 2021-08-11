@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LoanDao {
 
-    public void createLoan(Loan loan);
+    public Loan createLoan(Loan loan);
 
     public Loan getLoan(String loanId);
 

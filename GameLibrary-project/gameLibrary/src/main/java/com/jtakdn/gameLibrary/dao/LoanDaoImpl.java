@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -41,6 +43,7 @@ public class LoanDaoImpl implements LoanDao{
     }
 
     @Override
+    @Transactional
     public boolean updateLoan(Loan loan) {
         if(getLoan(loan.getCustomerId()) != null) {
             final String sql = "UPDATE GameLoans SET "
@@ -59,6 +62,7 @@ public class LoanDaoImpl implements LoanDao{
     }
 
     @Override
+    @Transactional
     public boolean deleteLoan(String loanId) {
         if (getLoan(loanId) != null) {
             final String sql = "DELETE FROM GameLoans WHERE LoanId = ?";

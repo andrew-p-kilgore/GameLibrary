@@ -42,13 +42,32 @@ public class GameDaoImpl implements GameDao{
     }
 
     @Override
+    @Transactional
     public boolean updateGame(Game game) {
-        return false;
+        if(getGame(game.getGameId()) != null) {
+            final String sql = "UPDATE VideoGame SET "
+                    + "GameName = ?, "
+                    + "Genre = ?, "
+                    + "Platform = ?"
+                    + "GameYear = ?"
+                    + "Publisher = ? "
+                    + "WHERE GameId = ?;";
+            return jdbcTemplate.update(sql, game.getGameName(),
+                    game.getGameGenre(), game.getGamePlatform(),
+                    game.getGameYear(), game.getGamePublisher(),
+                    game.getGameId()) > 0;
+        }
+        else return false;
     }
 
     @Override
+    @Transactional
     public boolean deleteGame(String gameId) {
-        return false;
+        if (getGame(gameId) != null) {
+            final String sql = "DELETE FROM VideoGame WHERE GameId = ?";
+            return jdbcTemplate.update(sql, gameId) > 0;
+        }
+        else return false;
     }
 
     private static final class GameMapper implements RowMapper<Game> {
