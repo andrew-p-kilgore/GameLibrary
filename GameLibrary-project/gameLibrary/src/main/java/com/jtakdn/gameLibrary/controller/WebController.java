@@ -62,6 +62,4 @@ public class WebController
         return "redirect:/games";
     }
 
-
-
 }
