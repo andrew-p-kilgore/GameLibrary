@@ -109,9 +109,9 @@ public class WebController
     @PostMapping("/addLoan")
     public String addLoan(@Valid Loan newLoan, BindingResult result) 
     {
-        if (result.hasErrors()) return "/addLoan";
+        if (result.hasErrors()) return "/rentals";
         newLoan = serv.createLoan(newLoan);
-        return "redirect:/getRentalByID?loanID=" + newLoan.getCustomerId();
+        return "redirect:/getRentalByID?loanID=" + newLoan.getLoanId();
     }
 
     @PostMapping("/editGame")
