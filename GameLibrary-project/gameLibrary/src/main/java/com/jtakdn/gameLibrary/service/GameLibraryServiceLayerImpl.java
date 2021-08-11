@@ -29,9 +29,9 @@ public class GameLibraryServiceLayerImpl implements GameLibraryServiceLayer
     }
 
     @Override
-    public void createGame(Game game)
+    public Game createGame(Game game)
     {
-        gameDao.createGame(game);
+        return gameDao.createGame(game);
     }
 
     @Override
@@ -65,9 +65,9 @@ public class GameLibraryServiceLayerImpl implements GameLibraryServiceLayer
     }
 
     @Override
-    public void createLoan(Loan loan)
+    public Loan createLoan(Loan loan)
     {
-        loanDao.createLoan(loan);
+        return loanDao.createLoan(loan);
     }
 
     @Override
@@ -89,10 +89,9 @@ public class GameLibraryServiceLayerImpl implements GameLibraryServiceLayer
     }
 
     @Override
-    public void createCustomer(Customer customer)
+    public Customer createCustomer(Customer customer)
     {
-        customerDao.createCustomer(customer);
-
+        return customerDao.createCustomer(customer);
     }
 
     @Override

@@ -2,11 +2,16 @@ package com.jtakdn.gameLibrary.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
+import javax.validation.Valid;
+
+import com.jtakdn.gameLibrary.dto.Game;
 import com.jtakdn.gameLibrary.service.GameLibraryServiceLayerImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class WebController
@@ -83,5 +88,12 @@ public class WebController
         return "customer";
     }
 
+    @PostMapping("/addGame")
+    public String addGame(@Valid Game newGame, BindingResult result)
+    {
+        if (result.hasErrors()) return "/addGame";
+        newGame = serv.createGame(newGame);
+        return "redirect:/getGameByID?gameID=" + newGame.getGameId();
+    }
 
 }
