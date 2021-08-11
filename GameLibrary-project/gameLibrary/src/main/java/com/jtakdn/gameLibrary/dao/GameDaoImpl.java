@@ -44,21 +44,20 @@ public class GameDaoImpl implements GameDao{
 
     @Override
     @Transactional
-    public boolean updateGame(Game game) {
-        if(getGame(game.getGameId()) != null) {
-            final String sql = "UPDATE VideoGame SET "
-                    + "GameName = ?, "
-                    + "Genre = ?, "
-                    + "Platform = ?"
-                    + "GameYear = ?"
-                    + "Publisher = ? "
-                    + "WHERE GameId = ?;";
+    public boolean updateGame(Game game)
+    {
+        if (getGame(game.getGameId()) != null)
+        {
+            final String sql = "UPDATE VideoGame SET " + "GameName = ?, "
+                    + "Genre = ?, " + "Platform = ?, " + "GameYear = ?, "
+                    + "Publisher = ? " + "WHERE GameId = ?;";
             return jdbcTemplate.update(sql, game.getGameName(),
                     game.getGameGenre(), game.getGamePlatform(),
                     game.getGameYear(), game.getGamePublisher(),
-                    game.getGameId()) > 0;
+                    Integer.parseInt(game.getGameId())) > 0;
         }
-        else return false;
+        else
+            return false;
     }
 
     @Override

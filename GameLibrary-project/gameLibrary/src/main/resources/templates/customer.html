@@ -65,7 +65,11 @@
         </div>
         <div class="col-lg-5 col-md">
             <h3 style="margin-top: 8%;">Edit Customer</h3>
-                  <form action="editCust" method="POST" class="form">
+                  <form action="editCustomer" method="POST" class="form">
+                      <div class="form-group">
+                        <label class="col-4" for="editCustID">ID</label>
+                        <input class="col-8 form-control" type="number" id="editCustID" name="customerId" readonly th:value="${customer.customerId}"/>
+                      </div>
                       <div class="form-group">
                           <label class="col-4" for="editCustFname">First Name</label>
                           <input class="col-8 form-control" type="text" id="editCustFname" name="firstName" maxlength="15" required placeholder="First 15 Characters"/>
@@ -84,7 +88,7 @@
                       </div>
                       <div class="form-group">
                           <label class="col-4" for="editCustCard">Card Number</label>
-                          <input class="col-8 form-control" type="password" id="editCustCard" name="cardNumber" maxlength="16" required placeholder="999999999999"/>
+                          <input class="col-8 form-control" type="text" id="editCustCard" name="cardNumber" maxlength="16" required placeholder="999999999999"/>
                       </div>
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>

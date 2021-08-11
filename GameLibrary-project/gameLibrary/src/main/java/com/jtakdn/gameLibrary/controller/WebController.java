@@ -6,7 +6,9 @@ import org.springframework.validation.BindingResult;
 
 import javax.validation.Valid;
 
+import com.jtakdn.gameLibrary.dto.Customer;
 import com.jtakdn.gameLibrary.dto.Game;
+import com.jtakdn.gameLibrary.dto.Loan;
 import com.jtakdn.gameLibrary.service.GameLibraryServiceLayerImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,4 +98,35 @@ public class WebController
         return "redirect:/getGameByID?gameID=" + newGame.getGameId();
     }
 
+    @PostMapping("/addCustomer")
+    public String addCustomer(@Valid Customer newCust, BindingResult result) 
+    {
+        if (result.hasErrors()) return "/addCustomer";
+        newCust = serv.createCustomer(newCust);
+        return "redirect:/getCustByID?custID=" + newCust.getCustomerId();
+    }
+
+    @PostMapping("/addLoan")
+    public String addLoan(@Valid Loan newLoan, BindingResult result) 
+    {
+        if (result.hasErrors()) return "/addLoan";
+        newLoan = serv.createLoan(newLoan);
+        return "redirect:/getRentalByID?loanID=" + newLoan.getCustomerId();
+    }
+
+    @PostMapping("/editGame")
+    public String editGame(@Valid Game newGame, BindingResult result)
+    {
+        if (result.hasErrors()) return "/games";
+        serv.updateGame(newGame);
+        return "redirect:/getGameByID?gameID=" + newGame.getGameId();
+    }
+
+    @PostMapping("/editCustomer")
+    public String editCustomer(@Valid Customer newCust, BindingResult result) 
+    {
+        if (result.hasErrors()) return "/customers";
+        serv.updateCustomer(newCust);
+        return "redirect:/getCustByID?custID=" + newCust.getCustomerId();
+    }
 }
