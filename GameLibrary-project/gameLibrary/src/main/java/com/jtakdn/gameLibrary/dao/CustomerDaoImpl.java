@@ -34,7 +34,7 @@ public class CustomerDaoImpl implements CustomerDao{
     @Override
     public Customer getCustomer(String customerId) {
         final String sql = "SELECT * FROM Customer WHERE CustomerId = ?";
-        return jdbcTemplate.queryForObject(sql, new CustomerMapper(), customerId);
+        return jdbcTemplate.queryForObject(sql, new CustomerMapper(), Integer.parseInt(customerId));
     }
 
     @Override
@@ -57,7 +57,7 @@ public class CustomerDaoImpl implements CustomerDao{
             return jdbcTemplate.update(sql, customer.getFirstName(),
                     customer.getLastName(), customer.getPhoneNumber(),
                     customer.getAddress(), customer.getCardNumber(),
-                    customer.getCustomerId()) > 0;
+                    Integer.parseInt(customer.getCustomerId())) > 0;
         }
         else return false;
     }
@@ -67,7 +67,7 @@ public class CustomerDaoImpl implements CustomerDao{
     public boolean deleteCustomer(String customerId) {
         if (getCustomer(customerId) != null) {
             final String sql = "DELETE FROM Customer WHERE CustomerId = ?";
-            return jdbcTemplate.update(sql, customerId) > 0;
+            return jdbcTemplate.update(sql, Integer.parseInt(customerId)) > 0;
         }
         else return false;
     }

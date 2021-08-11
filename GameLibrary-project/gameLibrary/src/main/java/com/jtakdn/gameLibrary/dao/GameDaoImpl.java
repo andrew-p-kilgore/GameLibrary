@@ -33,7 +33,7 @@ public class GameDaoImpl implements GameDao{
     @Override
     public Game getGame(String gameId) {
         final String sql = "SELECT * FROM VideoGame WHERE GameId = ?";
-        return jdbcTemplate.queryForObject(sql, new GameMapper(), gameId);
+        return jdbcTemplate.queryForObject(sql, new GameMapper(), Integer.parseInt(gameId));
     }
 
     @Override
@@ -65,7 +65,7 @@ public class GameDaoImpl implements GameDao{
     public boolean deleteGame(String gameId) {
         if (getGame(gameId) != null) {
             final String sql = "DELETE FROM VideoGame WHERE GameId = ?";
-            return jdbcTemplate.update(sql, gameId) > 0;
+            return jdbcTemplate.update(sql, Integer.parseInt(gameId)) > 0;
         }
         else return false;
     }

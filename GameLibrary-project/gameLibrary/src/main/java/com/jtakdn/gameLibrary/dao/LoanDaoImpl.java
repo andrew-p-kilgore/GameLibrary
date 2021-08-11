@@ -57,7 +57,7 @@ public class LoanDaoImpl implements LoanDao{
             return jdbcTemplate.update(sql, loan.getGameId(),
                     loan.getCustomerId(), loan.getStartDate(),
                     loan.getEndDate(), loan.getCost(),
-                    loan.getLoanId()) > 0;
+                    Integer.parseInt(loan.getLoanId())) > 0;
         }
         else return false;
     }
