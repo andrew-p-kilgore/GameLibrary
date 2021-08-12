@@ -93,7 +93,7 @@ public class WebController
     @PostMapping("/addGame")
     public String addGame(@Valid Game newGame, BindingResult result)
     {
-        if (result.hasErrors()) return "/addGame";
+        if (result.hasErrors()) return "/games";
         newGame = serv.createGame(newGame);
         return "redirect:/getGameByID?gameID=" + newGame.getGameId();
     }
@@ -101,7 +101,7 @@ public class WebController
     @PostMapping("/addCustomer")
     public String addCustomer(@Valid Customer newCust, BindingResult result) 
     {
-        if (result.hasErrors()) return "/addCustomer";
+        if (result.hasErrors()) return "/customers";
         newCust = serv.createCustomer(newCust);
         return "redirect:/getCustByID?custID=" + newCust.getCustomerId();
     }

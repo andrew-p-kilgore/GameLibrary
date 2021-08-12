@@ -46,7 +46,7 @@ public class LoanDaoImpl implements LoanDao{
     @Override
     @Transactional
     public boolean updateLoan(Loan loan) {
-        if(getLoan(loan.getCustomerId()) != null) {
+        if(getLoan(loan.getLoanId()) != null) {
             final String sql = "UPDATE GameLoans SET "
                     + "GameId = ?, "
                     + "CustomerId = ?, "
