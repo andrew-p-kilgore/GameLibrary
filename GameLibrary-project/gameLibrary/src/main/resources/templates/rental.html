@@ -38,6 +38,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Cost</th>
+            <th>Delete</th>
           </tr>
           <tbody class="tbody">
             <tr>
@@ -71,7 +72,7 @@
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentStart">Start Date</label>
-            <input class="col-8 form-control" type="date" id="editRentStart" required name="startDate" th:value="${rental.startDate}"/>
+            <input class="col-8 form-control" type="date" id="editRentStart" onchange="minDate()" required name="startDate" th:value="${rental.startDate}"/>
           </div>
           <div class="form-group">
             <label class="col-4" for="editRentEnd">End Date</label>
@@ -91,7 +92,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/rental.js"></script>
 </body>
 
 </html>
